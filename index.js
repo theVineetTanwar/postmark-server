@@ -27,6 +27,14 @@ if (port == null || port == "") {
   port = 3000;
 }
 
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
 app.get('/', (req, res) => {
 
     // client.sendEmailWithTemplate({
@@ -51,6 +59,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
+    console.log('post api is hite')
 
     // request body
     // {
@@ -128,6 +137,5 @@ app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
     
 
 })
-
 app.use(cors());
 app.listen(port, () => console.log(`App listening on port ${port}!`))
