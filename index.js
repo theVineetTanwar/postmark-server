@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+const cors = require('cors')
+
+
 let port = process.env.PORT;
 let postmark = require("postmark");
 
@@ -126,4 +129,5 @@ app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
 
 })
 
+app.use(cors());
 app.listen(port, () => console.log(`App listening on port ${port}!`))
