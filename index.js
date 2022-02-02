@@ -11,7 +11,7 @@ let postmark = require("postmark");
 var jsonParser = bodyParser.json()
  
 // create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+// var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
 //  global const
@@ -37,30 +37,12 @@ app.use(function(req, res, next) {
 
 app.get('/', (req, res) => {
 
-    // client.sendEmailWithTemplate({
-    //     TemplateId:26736087,
-    //     From: "vineet@digitizeco.in",
-    //     To: "shashiy@digitizeco.in",
-    //     TemplateModel: {
-    //       "person": {
-    //           "first_name": "shashi the yadav",
-    //           "sender_name" : "Vineet the Tanwar"
-    //             }}
-    // }).then(response => {
-    //     console.log(response.To);
-    //     console.log(response.SubmittedAt);
-    //     console.log(response.Message);
-    //     console.log(response.MessageID);
-    //     console.log(response.ErrorCode);
-    // });
     
     res.send('Welcome to Make REST API Calls In updated Express!')
 
 })
 
 app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
-    console.log('post api is hite')
-
     // request body
     // {
     //     recieverEmail,
@@ -80,14 +62,14 @@ app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
     if(!recieverEmail){
         response['message'] = 'please give reciever email';
         res.send(response);
+        return false;
     }
 
     if(!recieverName){
         response['message'] = 'please give reciever name';
         res.send(response);
+        return false;
     }
-
-    
 
     client.sendEmailWithTemplate({
         TemplateId:TEMPLATE_ID,
@@ -116,26 +98,10 @@ app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
             }
     
             res.send(response);
+            return false;
         }
         
     });
-
-
-
-
-
-
-    // console.log(req.body);
-
-    // const data = {
-    //     message: 'success',
-    //     body: req.body,
-    //     recieverEmail: req.body.recieverEmail
-    // }
-    // // res.send(JSON.stringify(data));
-    // res.send(data);
-    
-
 })
 app.use(cors());
 app.listen(port, () => console.log(`App listening on port ${port}!`))
