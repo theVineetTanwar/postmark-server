@@ -1,12 +1,11 @@
-const express = require('express');
+import generatePdf from './pdf-generator/index.js';
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import postmark from 'postmark';
+
 const app = express();
-const bodyParser = require('body-parser');
-const cors = require('cors')
-
-
 let port = process.env.PORT;
-let postmark = require("postmark");
-
 // create application/json parser
 var jsonParser = bodyParser.json()
  
@@ -103,5 +102,21 @@ app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
         
     });
 })
+
+app.get('/api/pdf/:template', async (req, res) => {
+    if (!req.params.template)
+      return res.status(422).send({ message: 'missing PDF template' });
+  
+    try {
+      const pdf = await generatePdf(req.params.template, undefined);
+  
+      res.set({ 'Content-type': 'application/pdf' });
+      res.status(200).send(pdf);
+    } catch (e) {
+      console.log(e);
+      res.status(422).send(e);
+    }
+  });
+
 app.use(cors());
 app.listen(port, () => console.log(`App listening on port ${port}!`))
