@@ -3,7 +3,8 @@ import puppeteer from 'puppeteer';
 import { Liquid } from 'liquidjs';
 import path from 'path';
 import userAgent from 'user-agents';
-import TEST_DATA_LOC from './test-data/test-data.js';
+import TEST_DATA_1 from './test-data/test-data.js';
+import TEST_DATA_2 from './test-data/test-data-2.js';
 
 
 const __dirname = path.resolve();
@@ -24,7 +25,7 @@ const generatePdf = (filename, data) => {
 
       let preppedData = data;
       if (!preppedData) {
-        preppedData = TEST_DATA_LOC
+        preppedData = filename.includes('truss') ? TEST_DATA_2 : TEST_DATA_1
       }
 
 
@@ -32,8 +33,7 @@ const generatePdf = (filename, data) => {
       const htmlContent = await engine.render(tpl, preppedData);
 
       const browser = await puppeteer.launch({
-        args: ['--no-sandbox'],
-        // args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
       });
       const page = await browser.newPage();
       await page.setUserAgent(userAgent.toString());
