@@ -1,5 +1,6 @@
 const testData = {
-    "companyLogo": "https://raw.githubusercontent.com/theVineetTanwar/theVineetTanwar/main/oakmasters-icon.jpg",
+    "sampleImage": "https://raw.githubusercontent.com/theVineetTanwar/theVineetTanwar/main/oakmasters-icon.jpg",
+    "oakmasterLogo":'https://raw.githubusercontent.com/theVineetTanwar/theVineetTanwar/main/oakmaster-logo.png',
     
   }
 
