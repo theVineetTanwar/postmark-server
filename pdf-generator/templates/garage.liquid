@@ -54,11 +54,6 @@
             width: 100%;
             margin: 30px 0 0;
         }
-        h3{
-            text-align: left!important;
-            margin: 10px 0!important;
-            font-size: 16px!important;
-        }
         .value-container{
             font-size: 13px;
             text-align: left;
@@ -70,11 +65,23 @@
             text-align: right;
             font-size: 30px;
             font-weight: bold;
+            line-height: 35px;
     
         }
         .total-label{
             margin-right: 5px;
             font-size: 14px;
+            text-align: right;
+            width: 80px;
+            float: left;
+            display: inline-block;
+            width: calc(100% - 125px);
+        }
+        .total-value{
+            width: 120px;
+            display: inline-block;
+            text-align: right;
+            float: left;
         }
         .price-note-text{
             text-align: right;
@@ -107,10 +114,6 @@
         <div class="hor-row">
             <div class="hor-row content-main">
                 <div class="right-side-content">
-                    <!-- <h3 class="hor-row">
-                        DESIGN YOUR OWN OAK FRAMED GARAGE
-                    </h3> -->
-
                     <div class="hor-row value-container">
                         NUMBER OF BAYS: 3
                     </div>
@@ -130,13 +133,16 @@
                         LEFT LOG STORE: YES
                     </div>
                     <div class="hor-row value-container">
-                        RIGHT LOG STORE
+                        RIGHT LOG STORE: YES
                     </div>
                     <div class="hor-row value-container">
                         PARTITION 1: YES
                     </div>
                     <div class="hor-row value-container">
                         PARTITION 2: YES
+                    </div>
+                    <div class="hor-row value-container">
+                        PARTITION 3: YES
                     </div>
                     <div class="hor-row value-container">
                         DOOR MATERIAL: SOFTWOOD
@@ -154,62 +160,50 @@
                         DOOR 4: YES
                     </div>
                     <div class="hor-row value-container">
-                        GARAGE LENGTH: 874
+                        GARAGE LENGTH: 11m
                     </div>
                     <div class="hor-row value-container">
-                        GARAGE WIDTH: 647
+                        GARAGE WIDTH: 5.6m
                     </div>
                     <div class="hor-row value-container">
-                        GARAGE HEIGHT: 3843
+                        GARAGE HEIGHT: 4m
                     </div>
                     <div class="hor-row value-container">
-                        LOG LENGTH: 3483
+                        LOG LENGTH: 3.4m
                     </div>
                     <div class="hor-row value-container">
-                        LOG WIDTH: 3487
+                        LOG WIDTH: 1.2m
                     </div>
-
-                    <!-- <div class="hor-row total-value-container">
-                        <span class="total-label">Total:</span>
-                        €8748300
-                    </div>
-                    <div class="hor-row price-note-text">
-                    <i> (Prices do not includes shopping rates)</i>
-                    </div> -->
                 </div>
                 <div class="image-container">
                     <img src="{{ sampleImage }}"/>
                 </div>
             </div>
-            <!-- <div class="hor-row "> -->
             <div class="hor-row total-value-container">
-                <span class="total-label">NAT:</span>
-                €8748300
-
-                <br/>
-                <span class="total-label">VAT:</span>
-                €8748300
-                <br/>
-
-                <span class="total-label">GROSS:</span>
-                €8748300
-                <br/>
-
+                <div class="hor-row" style="text-align: right;">
+                    <span class="total-label">NET:</span>
+                    <span class="total-value">€{{ data.netPrice }}</span>
+                </div>
+                <div class="hor-row" style="text-align: right;">
+                    <span class="total-label">VAT:</span>
+                    <span class="total-value">€{{ data.vatPrice }}</span>
+                </div>
+                <div class="hor-row" style="text-align: right;">
+                    <span class="total-label">GROSS:</span>
+                    <span class="total-value">€{{ data.grossPrice }}</span>
+                </div>
             </div>
             <div class="hor-row price-note-text">
-                <i> (Prices do not includes shopping rates)</i>
+                <i> (Prices do not includes shipping rates)</i>
             </div>
-            <!-- </div> -->
             <div class="hor-row talk-to-us-content">
-                Please call or email if you would like to discuss
-                <br/> before placing an order : 01 444 44 00 11
+                Please call or email if you would like to discuss before placing an order 
                 <br/>
-                oak@oak-beams.com
+                Phone: 01 444 44 00 11
+                <br/>
+                Email: oak@oak-beams.com
             </div>
-
         </div>
     </div>
-
-
 </body>
 </html>

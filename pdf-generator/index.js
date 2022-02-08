@@ -28,6 +28,11 @@ const generatePdf = (filename, data) => {
         preppedData = filename.includes('truss') ? TEST_DATA_2 : TEST_DATA_1
       }
 
+      const netPrice = preppedData.data?.netPrice ?  preppedData.data.netPrice : 100;
+      const vatPrice = netPrice * 0.2;
+      preppedData['data']['netPrice'] = netPrice;
+      preppedData['data']['vatPrice'] = vatPrice;
+      preppedData['data']['grossPrice'] = netPrice + vatPrice;
 
       const tpl = engine.parse(template);
       const htmlContent = await engine.render(tpl, preppedData);

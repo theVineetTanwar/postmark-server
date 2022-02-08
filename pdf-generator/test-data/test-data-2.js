@@ -2,6 +2,7 @@ const testData = {
     "sampleImage": "https://raw.githubusercontent.com/theVineetTanwar/theVineetTanwar/main/truss-image.jpg",
     "oakmasterLogo":'https://raw.githubusercontent.com/theVineetTanwar/theVineetTanwar/main/oakmaster-logo.png',
     data: {
+      'netPrice': 1000,
       'Brace Curve': 0,
       'Brace Height (mm)': 100,
       'Brace Offset': 0,

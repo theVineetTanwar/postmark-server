@@ -53,11 +53,6 @@
             width: 100%;
             margin: 0px 0 0;
         }
-        h3{
-            text-align: left!important;
-            margin: 10px 0!important;
-            font-size: 16px!important;
-        }
         .value-container{
             font-size: 13px;
             text-align: left;
@@ -69,11 +64,23 @@
             text-align: right;
             font-size: 30px;
             font-weight: bold;
+            line-height: 35px;
     
         }
         .total-label{
             margin-right: 5px;
             font-size: 14px;
+            text-align: right;
+            width: 80px;
+            float: left;
+            display: inline-block;
+            width: calc(100% - 125px);
+        }
+        .total-value{
+            width: 120px;
+            display: inline-block;
+            text-align: right;
+            float: left;
         }
         .price-note-text{
             text-align: right;
@@ -107,19 +114,40 @@
             <div class="hor-row content-main">
                 <div class="right-side-content">
                     <div class="hor-row value-container">
-                        BRACES: YES
-                    </div>
-                    <div class="hor-row value-container">
-                        BRACE WIDTH (MM): 125
-                    </div>
-                    <div class="hor-row value-container">
-                        BRACE HEIGHT(MM): 200
-                    </div>
-                    <div class="hor-row value-container">
                         TRUSS TYPE: KING(FLUTED)
                     </div>
                     <div class="hor-row value-container">
-                        TRUSS QUANTITY: 3
+                        ROOF PITCH ANGLE: 45 degrees
+                    </div>
+                    <div class="hor-row value-container">
+                        TIE BEAM SPAN(MM): 6000
+                    </div>
+                    <div class="hor-row value-container">
+                        WALL DEPTH(MM. IN ADDITION TO SPAN) 300
+                    </div>
+                    <div class="hor-row value-container">
+                        BRACES: YES
+                    </div>
+                    <div class="hor-row value-container">
+                        BRACE OFFSET: 125
+                    </div>
+                    <div class="hor-row value-container">
+                        BRACE CURVE: 125
+                    </div>
+                    <div class="hor-row value-container">
+                        COLLAR: YES
+                    </div>
+                    <div class="hor-row value-container">
+                        TIE BEAM HEIGHT(MM): 600
+                    </div>
+                    <div class="hor-row value-container">
+                        TIE BEAM WIDTH(MM): 200
+                    </div>
+                    <div class="hor-row value-container">
+                        KING POST DEPTH(MM): 200
+                    </div>
+                    <div class="hor-row value-container">
+                        KING POST WIDTH(MM): 255
                     </div>
                     <div class="hor-row value-container">
                         RAFTER HEIGHT (MM): 175         
@@ -128,28 +156,25 @@
                         RAFTER WIDTH(MM): 200
                     </div>
                     <div class="hor-row value-container">
+                        BRACE HEIGHT(MM): 200
+                    </div>
+                    <div class="hor-row value-container">
+                        BRACE WIDTH (MM): 125
+                    </div>
+                    <div class="hor-row value-container">
+                        COLLAR HEIGHT
+                    </div>
+                    <div class="hor-row value-container">
+                        COLLAR WIDTH (MM)
+                    </div>
+                    <div class="hor-row value-container">
+                        TRUSS QUANTITY: 3
+                    </div>
+                    <div class="hor-row value-container">
                         WOOD MASS: 2769 Kg
                     </div>
                     <div class="hor-row value-container">
-                        ROOF PITCH ANGLE: 45 degrees
-                    </div>
-                    <div class="hor-row value-container">
                         WALL DEPTH(MM. IN ADDITION TO SPAN) 300
-                    </div>
-                    <div class="hor-row value-container">
-                        KING POST WIDTH(MM): 255
-                    </div>
-                    <div class="hor-row value-container">
-                        KING POST DEPTH(MM): 200
-                    </div>
-                    <div class="hor-row value-container">
-                        TIE BEAM SPAN(MM): 6000
-                    </div>
-                    <div class="hor-row value-container">
-                        TIE BEAM HEIGHT(MM): 600
-                    </div>
-                    <div class="hor-row value-container">
-                        TIE BEAM WIDTH(MM): 200
                     </div>
 
                 </div>
@@ -157,30 +182,29 @@
                     <img src="{{ sampleImage }}"/>
                 </div>
             </div>
-            <!-- <div class="hor-row "> -->
             <div class="hor-row total-value-container">
-                <span class="total-label">NAT:</span>
-                €8748300
-
-                <br/>
-                <span class="total-label">VAT:</span>
-                €8748300
-                <br/>
-
-                <span class="total-label">GROSS:</span>
-                €8748300
-                <br/>
-
+                <div class="hor-row" style="text-align: right;">
+                    <span class="total-label">NET:</span>
+                    <span class="total-value">€{{ data.netPrice }}</span>
+                </div>
+                <div class="hor-row" style="text-align: right;">
+                    <span class="total-label">VAT:</span>
+                    <span class="total-value">€{{ data.vatPrice }}</span>
+                </div>
+                <div class="hor-row" style="text-align: right;">
+                    <span class="total-label">GROSS:</span>
+                    <span class="total-value">€{{ data.grossPrice }}</span>
+                </div>
             </div>
             <div class="hor-row price-note-text">
-                <i> (Prices do not includes shopping rates)</i>
+                <i> (Prices do not includes shipping rates)</i>
             </div>
-            <!-- </div> -->
             <div class="hor-row talk-to-us-content">
-                Please call or email if you would like to discuss
-                <br/> before placing an order : 01 444 44 00 11
+                Please call or email if you would like to discuss before placing an order 
                 <br/>
-                oak@oak-beams.com
+                Phone: 01 444 44 00 11
+                <br/>
+                Email: oak@oak-beams.com
             </div>
 
         </div>
