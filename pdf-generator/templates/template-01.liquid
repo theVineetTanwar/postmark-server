@@ -2,7 +2,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Oakmaster</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap" rel="stylesheet"   >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body{
@@ -21,28 +21,33 @@
         .container-main{
             width: 100%;
             float: none;
-            display: grid;
             margin: auto;
             max-width: 1000px;
             padding: 50px 20px 60px;
-            grid-template-columns: 210px auto;
+        }
+        .header-container{
+            grid-template-columns: 280px auto;
+            display: grid;
         }
         .logo-container img{
-            width: calc(100% - 35px);
+            width: calc(100% - 50px);
             float: left;
-            margin: 0 0 0 20px;
+            margin: -10px 0 0 20px;
         }
         h2{
             text-align: left!important;
-            font-size: 38px!important;
+            font-size: 40px!important;
             color: red;
     
         }
         .content-main{
             display: grid;
-            grid-template-columns: 200px auto;
+            grid-template-columns: auto 360px;
             grid-gap: 0px;
             margin: 60px 0 0;
+        }
+        .right-side-content{
+            padding-left: 30px;
         }
         .image-container img{
             width: 100%;
@@ -76,6 +81,7 @@
         }
         .talk-to-us-content{
             text-align: left;
+            padding-left: 30px;
             color: red;
             font-size: 14px;
             font-weight: 555;
@@ -90,19 +96,19 @@
   
 <body class="hor-row">
     <div class="hor-row container-main">
-        <div class="hor-row logo-container">
-            <img src="{{ oakmasterLogo }}" alt = 'logo' />
+        <div class="hor-row header-container">
+            <div class="hor-row logo-container">
+                <img src="{{ oakmasterLogo }}" alt = 'logo' />
+            </div>
+            <h2 class="hor-row">QUOTAION SUMMARY</h2>
         </div>
+        
         <div class="hor-row">
-            <h2 class="hor-row">QUOATATION SUMMARY</h2>
             <div class="hor-row content-main">
-                <div class="image-container">
-                    <img src="{{ sampleImage }}"/>
-                </div>
                 <div class="right-side-content">
-                    <h3 class="hor-row">
+                    <!-- <h3 class="hor-row">
                         DESIGN YOUR OWN OAK FRAMED GARAGE
-                    </h3>
+                    </h3> -->
 
                     <div class="hor-row value-container">
                         NUMBER OF BAYS: 3
@@ -132,7 +138,7 @@
                         PARTITION 2: YES
                     </div>
                     <div class="hor-row value-container">
-                        PARTITION 3: YES
+                        DOOR MATERIAL: SOFTWOOD
                     </div>
                     <div class="hor-row value-container">
                         DOOR 1: YES
@@ -162,15 +168,37 @@
                         LOG WIDTH
                     </div>
 
-                    <div class="hor-row total-value-container">
+                    <!-- <div class="hor-row total-value-container">
                         <span class="total-label">Total:</span>
                         €8748300
                     </div>
                     <div class="hor-row price-note-text">
                     <i> (Prices do not includes shopping rates)</i>
-                    </div>
+                    </div> -->
+                </div>
+                <div class="image-container">
+                    <img src="{{ sampleImage }}"/>
                 </div>
             </div>
+            <!-- <div class="hor-row "> -->
+            <div class="hor-row total-value-container">
+                <span class="total-label">NAT:</span>
+                €8748300
+
+                <br/>
+                <span class="total-label">VAT:</span>
+                €8748300
+                <br/>
+
+                <span class="total-label">GROSS:</span>
+                €8748300
+                <br/>
+
+            </div>
+            <div class="hor-row price-note-text">
+                <i> (Prices do not includes shopping rates)</i>
+            </div>
+            <!-- </div> -->
             <div class="hor-row talk-to-us-content">
                 Please call or email if you would like to discuss
                 <br/> before placing an order : 01 444 44 00 11
