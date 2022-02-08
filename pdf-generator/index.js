@@ -2,7 +2,9 @@ import fs from 'fs';
 import puppeteer from 'puppeteer';
 import { Liquid } from 'liquidjs';
 import path from 'path';
+import userAgent from 'user-agents';
 import TEST_DATA_LOC from './test-data/test-data.js';
+
 
 const __dirname = path.resolve();
 const ASSETS_DIR = path.join(__dirname, 'pdf-generator/templates');
@@ -34,6 +36,7 @@ const generatePdf = (filename, data) => {
         // args: ['--no-sandbox', '--disable-setuid-sandbox'],
       });
       const page = await browser.newPage();
+      await page.setUserAgent(userAgent.toString());
       await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
       await page.emulateMediaType('print');
 
