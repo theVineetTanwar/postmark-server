@@ -115,64 +115,91 @@
             <div class="hor-row content-main">
                 <div class="right-side-content">
                     <div class="hor-row value-container">
-                        NUMBER OF BAYS: 3
+                        NUMBER OF BAYS: {{data["Number Of Bays"]}}
                     </div>
                     <div class="hor-row value-container">
-                        ROOF PITCH: 35DEG
+                        ROOF PITCH: {{data["Roof Pitch"]}}
                     </div>
                     <div class="hor-row value-container">
-                        WALL CLADING MATERIAL: SOFTWOOD
+                        WALL CLADING MATERIAL: {{data["Wall Cladding Material"]}}
                     </div>
                     <div class="hor-row value-container">
-                        LEFT ROOF TYPE: FULL-HIP
+                        LEFT ROOF TYPE: {{data["Left Roof Type"]}}
                     </div>
                     <div class="hor-row value-container">
-                        RIGHT ROOF TYPE: FULL-HIP
+                        RIGHT ROOF TYPE: {{data["Right Roof Type"]}}
                     </div>
+                    {% if data["Left Log Store"] %}
+                        <div class="hor-row value-container">
+                            LEFT LOG STORE: YES
+                        </div>
+                    {% endif %}
+                    
+                    {% if data["Right Log Store"] %}
+                        <div class="hor-row value-container">
+                            RIGHT LOG STORE: YES
+                        </div>
+                    {% endif %}
+                    
+                    {% if data["Partition 1"] %}
+                        <div class="hor-row value-container">
+                            PARTITION 1: YES
+                        </div>
+                    {% endif %}
+                    
+                    {% if data["Partition 2"] %}
+                        <div class="hor-row value-container">
+                            PARTITION 2: YES
+                        </div>
+                    {% endif %}
+
+                    {% if data["Partition 3"] %}
+                        <div class="hor-row value-container">
+                            PARTITION 3: YES
+                        </div>
+                    {% endif %}
+
                     <div class="hor-row value-container">
-                        LEFT LOG STORE: YES
+                        DOOR MATERIAL: {{data["Door Material"]}}
                     </div>
+                    {% if data["Door 1"] %}
+                        <div class="hor-row value-container">
+                            DOOR 1: YES
+                        </div>
+                    {% endif %}
+                    
+                    {% if data["Door 2"] %}
+                        <div class="hor-row value-container">
+                            DOOR 2 YES
+                        </div>
+                    {% endif %}
+                    
+                    {% if data["Door 3"] %}
+                        <div class="hor-row value-container">
+                            DOOR 3: YES
+                        </div>
+                    {% endif %}
+                    
+                    {% if data["Door 4"] %}
+                        <div class="hor-row value-container">
+                            DOOR 4: YES
+                        </div>
+                    {% endif %}
+                    
                     <div class="hor-row value-container">
-                        RIGHT LOG STORE: YES
-                    </div>
-                    <div class="hor-row value-container">
-                        PARTITION 1: YES
-                    </div>
-                    <div class="hor-row value-container">
-                        PARTITION 2: YES
-                    </div>
-                    <div class="hor-row value-container">
-                        PARTITION 3: YES
-                    </div>
-                    <div class="hor-row value-container">
-                        DOOR MATERIAL: SOFTWOOD
-                    </div>
-                    <div class="hor-row value-container">
-                        DOOR 1: YES
-                    </div>
-                    <div class="hor-row value-container">
-                        DOOR 2 YES
-                    </div>
-                    <div class="hor-row value-container">
-                        DOOR 3: YES
-                    </div>
-                    <div class="hor-row value-container">
-                        DOOR 4: YES
-                    </div>
-                    <div class="hor-row value-container">
-                        GARAGE LENGTH: 11m
+                        GARAGE LENGTH: {{data["garageLength"]}}
                     </div>
                     <div class="hor-row value-container">
                         GARAGE WIDTH: 5.6m
                     </div>
                     <div class="hor-row value-container">
-                        GARAGE HEIGHT: 4m
+                        GARAGE HEIGHT: {{data["garageHeight"]}}
                     </div>
                     <div class="hor-row value-container">
-                        LOG LENGTH: 3.4m
+                        LOG LENGTH: {{data["logLength"]}}
                     </div>
                     <div class="hor-row value-container">
-                        LOG WIDTH: 1.2m
+                        LOG WIDTH: {{data["logWidth"]}}
                     </div>
                 </div>
                 <div class="image-container">

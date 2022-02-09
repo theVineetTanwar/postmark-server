@@ -114,61 +114,73 @@
             <div class="hor-row content-main">
                 <div class="right-side-content">
                     <div class="hor-row value-container">
-                        TRUSS TYPE: KING(FLUTED)
+                        TRUSS TYPE: {{data["Truss Type"]}}
                     </div>
                     <div class="hor-row value-container">
-                        ROOF PITCH ANGLE: 45 degrees
+                        ROOF PITCH ANGLE: {{data["Roof Pitch Angle"]}}
                     </div>
                     <div class="hor-row value-container">
-                        TIE BEAM SPAN(MM): 6000
+                        TIE BEAM SPAN(MM): {{data["Tie Beam Span (mm)"]}}
                     </div>
                     <div class="hor-row value-container">
-                        WALL DEPTH(MM. IN ADDITION TO SPAN): 300
+                        WALL DEPTH(MM. IN ADDITION TO SPAN): {{data["Wall Depth (mm, in addition to span)"]}}
+                    </div>
+
+                    {% if data["Braces"] %}
+                        <div class="hor-row value-container">
+                            BRACES: YES
+                        </div>
+                    {% endif %}
+
+                    <div class="hor-row value-container">
+                        BRACE OFFSET: {{data["Brace Offset"]}}
                     </div>
                     <div class="hor-row value-container">
-                        BRACES: YES
+                        BRACE CURVE: {{data["Brace Curve"]}}
+                    </div>
+
+                    {% if data["Collar"] %}
+                        <div class="hor-row value-container">
+                            COLLAR: YES
+                        </div>
+                    {% endif %}
+
+                    <div class="hor-row value-container">
+                        TIE BEAM HEIGHT(MM): {{data["Tie Beam Height (mm)"]}}
                     </div>
                     <div class="hor-row value-container">
-                        BRACE OFFSET: 125
+                        TIE BEAM WIDTH(MM): {{data["Tie Beam Width (mm)"]}}
                     </div>
                     <div class="hor-row value-container">
-                        BRACE CURVE: 125
+                        KING POST DEPTH(MM): {{data["King Post Depth (mm)"]}}
                     </div>
                     <div class="hor-row value-container">
-                        COLLAR: YES
+                        KING POST WIDTH(MM): {{data["King Post Width (mm)"]}}
                     </div>
                     <div class="hor-row value-container">
-                        TIE BEAM HEIGHT(MM): 600
+                        RAFTER HEIGHT (MM): {{data["Rafter Height (mm)"]}}         
                     </div>
                     <div class="hor-row value-container">
-                        TIE BEAM WIDTH(MM): 200
+                        RAFTER WIDTH(MM): {{data["Rafter Width (mm)"]}}
                     </div>
                     <div class="hor-row value-container">
-                        KING POST DEPTH(MM): 200
+                        BRACE HEIGHT(MM): {{data["Brace Height (mm)"]}}
                     </div>
                     <div class="hor-row value-container">
-                        KING POST WIDTH(MM): 255
+                        BRACE WIDTH (MM): {{data["Brace Width (mm)"]}}
                     </div>
+
+                    {% if data["Collar"] %}
+                        <div class="hor-row value-container">
+                            COLLAR HEIGHT (MM): {{data[""]}}
+                        </div>
+                        <div class="hor-row value-container">
+                            COLLAR WIDTH (MM): {{data[""]}}
+                        </div>
+                    {% endif %}
+
                     <div class="hor-row value-container">
-                        RAFTER HEIGHT (MM): 175         
-                    </div>
-                    <div class="hor-row value-container">
-                        RAFTER WIDTH(MM): 200
-                    </div>
-                    <div class="hor-row value-container">
-                        BRACE HEIGHT(MM): 200
-                    </div>
-                    <div class="hor-row value-container">
-                        BRACE WIDTH (MM): 125
-                    </div>
-                    <div class="hor-row value-container">
-                        COLLAR HEIGHT (MM): 23
-                    </div>
-                    <div class="hor-row value-container">
-                        COLLAR WIDTH (MM): 43
-                    </div>
-                    <div class="hor-row value-container">
-                        TRUSS QUANTITY: 3
+                        TRUSS QUANTITY: {{data["Truss Quantity"]}}
                     </div>
                     <div class="hor-row value-container">
                         WOOD MASS: 2769 Kg
