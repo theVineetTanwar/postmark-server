@@ -7,7 +7,7 @@ import postmark from 'postmark';
 const app = express();
 let port = process.env.PORT;
 // create application/json parser
-var jsonParser = bodyParser.json()
+var jsonParser = bodyParser.json({ limit: "50mb" })
  
 // create application/x-www-form-urlencoded parser
 // var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -20,7 +20,6 @@ const SENDER_EMAIL = 'vineet@digitizeco.in';
 const SERVER_TOKEN = "c930074c-8ca1-4ec8-b20e-021f214e0e4a";
 
 const client = new postmark.ServerClient(SERVER_TOKEN);
-
 
 if (port == null || port == "") {
   port = 3000;
@@ -69,6 +68,7 @@ app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
         res.send(response);
         return false;
     }
+    const attachments = req.body?.Attachments ? req.body.Attachments : []
 
     client.sendEmailWithTemplate({
         TemplateId:TEMPLATE_ID,
@@ -78,7 +78,9 @@ app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
           "person": {
               "first_name": "shashi the yadav",
               "sender_name" : recieverName
-                }}
+              }
+        },
+        Attachments: attachments
     }, function(error, response) {
         if(error) {
             console.error("Unable to send via postmark: " + error.message);
@@ -112,6 +114,31 @@ app.get('/api/pdf/:template', async (req, res) => {
   
       res.set({ 'Content-type': 'application/pdf' });
       res.status(200).send(pdf);
+    } catch (e) {
+      console.log(e);
+      res.status(422).send(e);
+    }
+  });
+
+  app.post('/api/pdf/:template',jsonParser, async (req, res) => {
+    if (!req.body) return res.status(422).send();
+    if (!req.params.template)
+      return res.status(422).send({ message: 'missing PDF template' });
+    try {
+      const pdf = await generatePdf(req.params.template, req.body);
+      res.set(
+        Object.assign(
+          { 'Content-type': 'application/pdf' },
+          req.query.download === 'true'
+            ? {
+                'Content-Disposition': `attachment;filename=${
+                  req.query.filename || 'threekit-configuration.pdf'
+                }`,
+              }
+            : {}
+        )
+      );
+      res.end(pdf);
     } catch (e) {
       console.log(e);
       res.status(422).send(e);
