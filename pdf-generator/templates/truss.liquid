@@ -151,12 +151,19 @@
                     <div class="hor-row value-container">
                         TIE BEAM WIDTH(MM): {{data["Tie Beam Width (mm)"]}}
                     </div>
-                    <div class="hor-row value-container">
-                        KING POST DEPTH(MM): {{data["King Post Depth (mm)"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        KING POST WIDTH(MM): {{data["King Post Width (mm)"]}}
-                    </div>
+
+                    {% if data["King Post Depth (mm)"] %}
+                        <div class="hor-row value-container">
+                            KING POST DEPTH(MM): {{data["King Post Depth (mm)"]}}
+                        </div>
+                    {% endif %}
+                    {% if data["King Post Width (mm)"] %}
+                        <div class="hor-row value-container">
+                            KING POST WIDTH(MM): {{data["King Post Width (mm)"]}}
+                        </div>
+                    {% endif %}
+
+
                     <div class="hor-row value-container">
                         RAFTER HEIGHT (MM): {{data["Rafter Height (mm)"]}}         
                     </div>
