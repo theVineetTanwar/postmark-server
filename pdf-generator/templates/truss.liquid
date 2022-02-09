@@ -130,14 +130,14 @@
                         <div class="hor-row value-container">
                             BRACES: YES
                         </div>
-                    {% endif %}
 
-                    <div class="hor-row value-container">
-                        BRACE OFFSET: {{data["Brace Offset"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        BRACE CURVE: {{data["Brace Curve"]}}
-                    </div>
+                        <div class="hor-row value-container">
+                            BRACE OFFSET: {{data["Brace Offset"]}}
+                        </div>
+                        <div class="hor-row value-container">
+                            BRACE CURVE: {{data["Brace Curve"]}}
+                        </div>
+                    {% endif %}
 
                     {% if data["Collar"] %}
                         <div class="hor-row value-container">
@@ -163,19 +163,26 @@
                         </div>
                     {% endif %}
 
-
-                    <div class="hor-row value-container">
-                        RAFTER HEIGHT (MM): {{data["Rafter Height (mm)"]}}         
-                    </div>
-                    <div class="hor-row value-container">
-                        RAFTER WIDTH(MM): {{data["Rafter Width (mm)"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        BRACE HEIGHT(MM): {{data["Brace Height (mm)"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        BRACE WIDTH (MM): {{data["Brace Width (mm)"]}}
-                    </div>
+                    {% if data["Rafter Height (mm)"] %}
+                        <div class="hor-row value-container">
+                            RAFTER HEIGHT (MM): {{data["Rafter Height (mm)"]}}         
+                        </div>
+                    {% endif %}
+                    {% if data["Rafter Width (mm)"] %}
+                        <div class="hor-row value-container">
+                            RAFTER WIDTH(MM): {{data["Rafter Width (mm)"]}}
+                        </div>
+                    {% endif %}
+                    {% if data["Brace Height (mm)"] %}
+                        <div class="hor-row value-container">
+                            BRACE HEIGHT(MM): {{data["Brace Height (mm)"]}}
+                        </div>
+                    {% endif %}
+                    {% if data["Brace Width (mm)"] %}
+                        <div class="hor-row value-container">
+                            BRACE WIDTH (MM): {{data["Brace Width (mm)"]}}
+                        </div>
+                    {% endif %}
 
                     {% if data["Collar"] %}
                         <div class="hor-row value-container">
