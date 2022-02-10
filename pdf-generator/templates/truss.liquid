@@ -116,24 +116,35 @@
                     <div class="hor-row value-container">
                         TRUSS TYPE: {{data["Truss Type"]}}
                     </div>
-                    <div class="hor-row value-container">
-                        ROOF PITCH ANGLE: {{data["Roof Pitch Angle"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        TIE BEAM SPAN(MM): {{data["Tie Beam Span (mm)"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        WALL DEPTH(MM. IN ADDITION TO SPAN): {{data["Wall Depth (mm, in addition to span)"]}}
-                    </div>
+                    {% if data["Roof Pitch Angle"] %}
+                        <div class="hor-row value-container">
+                            ROOF PITCH ANGLE: {{data["Roof Pitch Angle"]}}
+                        </div>
+                    {% endif %}
+                    {% if data["Tie Beam Span (mm)"] %}
+                        <div class="hor-row value-container">
+                            TIE BEAM SPAN(MM): {{data["Tie Beam Span (mm)"]}}
+                        </div>
+                    {% endif %}
+                    {% if data["Wall Depth (mm, in addition to span)"] %}
+                        <div class="hor-row value-container">
+                            WALL DEPTH(MM. IN ADDITION TO SPAN): {{data["Wall Depth (mm, in addition to span)"]}}
+                        </div>
+                    {% endif %}
 
                     {% if data["Braces"] %}
                         <div class="hor-row value-container">
                             BRACES: YES
                         </div>
+                    {% endif %}
 
+                    {% if data["Brace Offset"] %}
                         <div class="hor-row value-container">
                             BRACE OFFSET: {{data["Brace Offset"]}}
                         </div>
+                    {% endif %}
+
+                    {% if data["Brace Curve"] %}
                         <div class="hor-row value-container">
                             BRACE CURVE: {{data["Brace Curve"]}}
                         </div>
@@ -145,12 +156,17 @@
                         </div>
                     {% endif %}
 
-                    <div class="hor-row value-container">
-                        TIE BEAM HEIGHT(MM): {{data["Tie Beam Height (mm)"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        TIE BEAM WIDTH(MM): {{data["Tie Beam Width (mm)"]}}
-                    </div>
+                    {% if data["Tie Beam Height (mm)"] %}
+                        <div class="hor-row value-container">
+                            TIE BEAM HEIGHT(MM): {{data["Tie Beam Height (mm)"]}}
+                        </div>
+                    {% endif %}
+
+                    {% if data["Tie Beam Width (mm)"] %}
+                        <div class="hor-row value-container">
+                            TIE BEAM WIDTH(MM): {{data["Tie Beam Width (mm)"]}}
+                        </div>
+                    {% endif %}
 
                     {% if data["King Post Depth (mm)"] %}
                         <div class="hor-row value-container">
@@ -198,9 +214,6 @@
                     </div>
                     <div class="hor-row value-container">
                         WOOD MASS: {{data["woodMass"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        WALL DEPTH(MM. IN ADDITION TO SPAN): {{data["Wall Depth (mm, in addition to span)"]}}
                     </div>
 
                 </div>
