@@ -1,10 +1,7 @@
 const testData = {
-    "sampleImage": "https://raw.githubusercontent.com/theVineetTanwar/theVineetTanwar/main/oakmasters-icon.jpg",
-    "oakmasterLogo":'https://raw.githubusercontent.com/theVineetTanwar/theVineetTanwar/main/oakmaster-logo.png',
+    "sampleImage": "https://raw.githubusercontent.com/theVineetTanwar/theVineetTanwar/main/garage-new.png",
+    "oakmasterLogo":'https://raw.githubusercontent.com/theVineetTanwar/theVineetTanwar/main/oakmaster-new-logo.jpg',
     data: {
-      netPrice: 1000,
-      vatPrice: 200,
-      grossPrice: 1200,
       "Door 2": true,
       "Door 3": true,
       "Right Log Store": true,
@@ -21,7 +18,15 @@ const testData = {
       "Partition 1": true,
       "Partition 2": true,
       "Partition 3": true,
-      "Door 1": true
+      "Door 1": true,
+      "garageHeight": "4m",
+      "garageLength": "11m",
+      "garageWidth": "5.6m",
+      "grossPrice": "£1,200.00",
+      "logLength": "3.4m",
+      "logWidth": "1.2m",
+      "netPrice": "£1,000.00",
+      "vatPrice": "£200.00",
     }
     
   }

@@ -23,47 +23,51 @@
             float: none;
             margin: auto;
             max-width: 1000px;
-            padding: 50px 20px 60px;
+            padding: 20px 20px 60px;
         }
         .header-container{
-            grid-template-columns: 280px auto;
+            grid-template-columns: 370px auto;
             display: grid;
         }
         .logo-container img{
-            width: calc(100% - 50px);
+            width: 260px;
             float: left;
             margin: -10px 0 0 20px;
         }
+        .company-address-container{
+            font-size: 12px;
+            text-align: left;
+            font-weight: bold;
+            padding-left: 20px;
+        }
         h2{
             text-align: right!important;
-            font-size: 40px!important;
-            padding-right: 10px!important;
-            color: red;
-    
+            font-size: 35px!important;
+            margin-top: 50px!important;
         }
         .content-main{
             display: grid;
-            grid-template-columns: auto 360px;
+            grid-template-columns: auto 380px;
             grid-gap: 0px;
-            margin: 60px 0 0;
+            margin: 30px 0 0;
         }
         .right-side-content{
-            padding-left: 30px;
+            padding-left: 20px;
         }
         .image-container img{
             width: 100%;
-            margin: 30px 0 0;
+            margin: 0px 0 0;
         }
         .value-container{
-            font-size: 13px;
+            font-size: 12px;
             text-align: left;
-            margin: 3px 0;
+            margin: 2px 0;
             font-weight: 550;
         }
         .total-value-container{
             margin: 50px 0 0;
             text-align: right;
-            font-size: 30px;
+            font-size: 25px;
             font-weight: bold;
             line-height: 35px;
     
@@ -89,11 +93,30 @@
         }
         .talk-to-us-content{
             text-align: left;
-            padding-left: 30px;
-            color: red;
-            font-size: 14px;
-            font-weight: 555;
-            margin-top: 50px;
+            padding-left: 20px;
+            margin-top: 30px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .footer-content-container{
+            margin: 20px 0 0;
+            font-weight: bold;
+        }
+        .place-order-content-main{
+            font-size: 12px;
+            padding-left: 20px;
+        }
+        .order-content-row{
+            text-align: left;
+            margin: 5px 0;
+        }
+        .footer-content-container .info-content-main{
+            font-size: 10px;
+            text-align: left;
+            color: #000000;
+            font-weight: 444;
+            padding-left: 20px;
+            margin-top: 10px;
         }
     
     </style>
@@ -108,7 +131,12 @@
             <div class="hor-row logo-container">
                 <img src="{{ oakmasterLogo }}" alt = 'logo' />
             </div>
-            <h2 class="hor-row">Quotaion Summary </h2>
+            <h2 class="hor-row">Quotation Summary </h2>
+        </div>
+        <div class="hor-row company-address-container">
+            Little Burchetts Farm, Isaac's Lane,  Haywards Heath, West Sussex. 
+            <br/>RH16 4RZ  01444 44 00 11, 
+            &ensp;www.oak-beams.com
         </div>
         
         <div class="hor-row">
@@ -119,6 +147,15 @@
                     </div>
                     <div class="hor-row value-container">
                         ROOF PITCH: {{data["Roof Pitch"]}}
+                    </div>
+                    <div class="hor-row value-container">
+                        GARAGE LENGTH: {{data["garageLength"]}}
+                    </div>
+                    <div class="hor-row value-container">
+                        GARAGE WIDTH: {{data["garageWidth"]}}
+                    </div>
+                    <div class="hor-row value-container">
+                        GARAGE HEIGHT: {{data["garageHeight"]}}
                     </div>
                     <div class="hor-row value-container">
                         WALL CLADING MATERIAL: {{data["Wall Cladding Material"]}}
@@ -141,6 +178,13 @@
                         </div>
                     {% endif %}
                     
+                    <div class="hor-row value-container">
+                        LOG LENGTH: {{data["logLength"]}}
+                    </div>
+                    <div class="hor-row value-container">
+                        LOG WIDTH: {{data["logWidth"]}}
+                    </div>
+                    
                     {% if data["Partition 1"] %}
                         <div class="hor-row value-container">
                             PARTITION 1: YES
@@ -159,9 +203,6 @@
                         </div>
                     {% endif %}
 
-                    <div class="hor-row value-container">
-                        DOOR MATERIAL: {{data["Door Material"]}}
-                    </div>
                     {% if data["Door 1"] %}
                         <div class="hor-row value-container">
                             DOOR 1: YES
@@ -179,56 +220,72 @@
                             DOOR 3: YES
                         </div>
                     {% endif %}
-                    
+
                     {% if data["Door 4"] %}
                         <div class="hor-row value-container">
                             DOOR 4: YES
                         </div>
                     {% endif %}
+
+                    <div class="hor-row value-container">
+                        DOOR MATERIAL: {{data["Door Material"]}}
+                    </div>
                     
-                    <div class="hor-row value-container">
-                        GARAGE LENGTH: {{data["garageLength"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        GARAGE WIDTH: {{data["garageWidth"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        GARAGE HEIGHT: {{data["garageHeight"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        LOG LENGTH: {{data["logLength"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        LOG WIDTH: {{data["logWidth"]}}
-                    </div>
+                    
                 </div>
                 <div class="image-container">
                     <img src="{{ sampleImage }}"/>
+                    <div class="hor-row total-value-container">
+                        <div class="hor-row" style="text-align: right;">
+                            <span class="total-label">NET:</span>
+                            <span class="total-value">{{ data.netPrice }}</span>
+                        </div>
+                        <div class="hor-row" style="text-align: right;">
+                            <span class="total-label">VAT:</span>
+                            <span class="total-value">{{ data.vatPrice }}</span>
+                        </div>
+                        <div class="hor-row" style="text-align: right;">
+                            <span class="total-label">GROSS:</span>
+                            <span class="total-value">{{ data.grossPrice }}</span>
+                        </div>
+                    </div>
+                    <div class="hor-row price-note-text">
+                        <i> (Prices do not includes shipping rates)</i>
+                    </div>
                 </div>
             </div>
-            <div class="hor-row total-value-container">
-                <div class="hor-row" style="text-align: right;">
-                    <span class="total-label">NET:</span>
-                    <span class="total-value">€{{ data.netPrice }}</span>
-                </div>
-                <div class="hor-row" style="text-align: right;">
-                    <span class="total-label">VAT:</span>
-                    <span class="total-value">€{{ data.vatPrice }}</span>
-                </div>
-                <div class="hor-row" style="text-align: right;">
-                    <span class="total-label">GROSS:</span>
-                    <span class="total-value">€{{ data.grossPrice }}</span>
-                </div>
-            </div>
-            <div class="hor-row price-note-text">
-                <i> (Prices do not includes shipping rates)</i>
-            </div>
+
             <div class="hor-row talk-to-us-content">
                 Please call or email if you would like to discuss before placing an order 
                 <br/>
-                Phone: 01 444 44 00 11
+                Phone: 01444 44 00 11
                 <br/>
                 Email: oak@oak-beams.com
+            </div>
+            <div class="hor-row footer-content-container">
+                <div class="place-order-content-main">
+                    <div class="hor-row order-content-row" style="font-size: 11px; font-weight: 555">
+                        To place an order please sign, date and return this form by email to:      oak@oak-beams.com
+                    </div>
+                    <div class="hor-row order-content-row">
+                        Client Authorising Signature: ………………………………………………………………………
+                    </div>
+                    <div class="hor-row order-content-row">
+                        Client / Company Name: ………………………………………………………………………………
+                    </div>
+                    <div class="hor-row order-content-row">
+                        Date: ……………………………………………………………………………………………………………
+                    </div>
+                    <div class="hor-row order-content-row">
+                        Client / Company Address: ……………………………………………………………………………
+                    </div>
+                </div>
+                <div class="hor-row info-content-main">
+                    Our quotations are valid for a period of three months from the date of issue.
+                    <br/>All business is transacted on the terms and conditions of Oakmasters  Ltd trading as Oakmasters, a copy of which will be provided on request.
+                    <br/>Registered office: Oakmasters Ltd, The Lodge,  Greentree Lane, Partridge Green, West Sussex, RH138EU.
+                    <br/>Registration number: 03892478
+                </div>
             </div>
         </div>
     </div>
