@@ -1,6 +1,6 @@
 const testData = {
-    "sampleImage": "https://raw.githubusercontent.com/theVineetTanwar/theVineetTanwar/main/truss-new.png",
-    "oakmasterLogo":'https://raw.githubusercontent.com/theVineetTanwar/theVineetTanwar/main/oakmaster-new-logo.jpg',
+    "sampleImage": "https://cdn.shopify.com/s/files/1/1993/9913/files/truss-new.png?v=1644572772",
+    "oakmasterLogo":'https://cdn.shopify.com/s/files/1/1993/9913/files/Oakmasters-Frames-Direct-Logo-200mm-Grey.jpg?v=1616068281',
     data: {
       "grossPrice": "£1,200.00",
       "netPrice": "£1,000.00",
