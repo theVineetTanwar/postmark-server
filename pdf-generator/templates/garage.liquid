@@ -178,12 +178,16 @@
                         </div>
                     {% endif %}
                     
-                    <div class="hor-row value-container">
-                        LOG LENGTH: {{data["logLength"]}}
-                    </div>
-                    <div class="hor-row value-container">
-                        LOG WIDTH: {{data["logWidth"]}}
-                    </div>
+                    {% if data["logLength"] %}
+                        <div class="hor-row value-container">
+                            LOG LENGTH: {{data["logLength"]}}
+                        </div>
+                    {% endif %}
+                    {% if data["logWidth"] %}
+                        <div class="hor-row value-container">
+                            LOG WIDTH: {{data["logWidth"]}}
+                        </div>
+                    {% endif %}
                     
                     {% if data["Partition 1"] %}
                         <div class="hor-row value-container">
